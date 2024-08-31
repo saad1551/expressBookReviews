@@ -17,7 +17,7 @@ app.use("/customer/auth/*", function auth(req,res,next){
     if (!token) {
         return res.status(401).json({error: 'Access denied'});
     }
-
+    
     try {
         const decoded = jwt.verify(token, "fingerprint_customer");
         req.userId = decoded.userId;
