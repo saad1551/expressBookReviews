@@ -7,7 +7,7 @@ let users = [];
 
 const isValid = (username)=>{ //returns boolean
 //write code to check is the username is valid
-    existing_users = users.filter((user) => {
+    const existing_users = users.filter((user) => {
         return user.username === username;
     });
 
@@ -20,7 +20,7 @@ const isValid = (username)=>{ //returns boolean
 
 const authenticatedUser = (username,password)=>{ //returns boolean
 //write code to check if username and password match the one we have in records.
-    user = users.filter((user) => {
+    const user = users.filter((user) => {
         return user.username === username && user.password === password;
     });
 
@@ -57,7 +57,7 @@ regd_users.put("/auth/review/:isbn", (req, res) => {
   const review = req.body.review;
   const isbn = req.params.isbn;
 
-  book = books[isbn];
+  const book = books[isbn];
 
   if (!book) {
     res.send("No book with the specified ISBN");
@@ -72,7 +72,7 @@ regd_users.delete("/auth/review/:isbn", (req, res) => {
     const isbn = req.params.isbn;
     const username = req.session.username;
 
-    book = books[isbn];
+    const book = books[isbn];
 
     if (!book) {
         res.send("No book with the specified ISBN");
